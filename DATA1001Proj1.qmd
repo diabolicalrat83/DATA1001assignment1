@@ -3,7 +3,7 @@ title: "DATA1001 Project 1"
 author: "Daniel Oh | Nick Gharman | Tommy Blair | Mitchel Gilling | Rafael Rodriguez | Killian McNamara | Harrison Lehmann"
 format: 
   html:
-    theme: styles.scss
+    theme: "~/Documents/DATA1001/Project1/styles.scss"
     embed-resources: true
     toc: true
     code-fold: true

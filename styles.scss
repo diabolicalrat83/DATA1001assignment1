@@ -1,7 +1,6 @@
 /*-- scss:defaults --*/
-
-// Variables (override Bootstrap defaults here)
-$font-family-sans-serif: 'Helvetica Neue', Arial, sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap');
+$font-family: "Garamond", serif;
 $body-bg: #f9fafb;
 $body-color: #222;
 
@@ -12,11 +11,9 @@ $warning: #f59e0b;
 $border-color: #e5e7eb;
 
 
+
 /*-- scss:rules --*/
 
-// ==========================
-// Global Styles
-// ==========================
 body {
   line-height: 1.6;
 }
@@ -25,9 +22,6 @@ body {
   max-width: 900px;
 }
 
-// ==========================
-// Typography
-// ==========================
 h1, h2, h3, h4 {
   font-weight: 600;
   margin-top: 1.5rem;
@@ -53,9 +47,6 @@ h3 {
   font-size: 0.95rem;
 }
 
-// ==========================
-// Tables
-// ==========================
 table {
   width: 100%;
   border-collapse: collapse;
@@ -76,9 +67,6 @@ table {
   }
 }
 
-// ==========================
-// Code Blocks
-// ==========================
 pre, code {
   background-color: #111827;
   color: #f9fafb;
@@ -90,9 +78,6 @@ pre {
   overflow-x: auto;
 }
 
-// ==========================
-// Figures
-// ==========================
 .figure {
   text-align: center;
   margin: 2rem 0;
@@ -110,9 +95,6 @@ pre {
   }
 }
 
-// ==========================
-// Highlight Boxes
-// ==========================
 .callout {
   border-left: 4px solid $primary;
   background-color: #eff6ff;
@@ -126,16 +108,4 @@ pre {
 .callout-success {
   border-left-color: $secondary;
   background-color: #ecfdf5;
-}
-
-// ==========================
-// Footer
-// ==========================
-.footer {
-  margin-top: 3rem;
-  padding-top: 1rem;
-  border-top: 1px solid $border-color;
-  font-size: 0.85rem;
-  color: #6b7280;
-  text-align: center;
 }

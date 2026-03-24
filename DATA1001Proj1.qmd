@@ -1,8 +1,9 @@
 ---
-title: "DATA1001 Project Template"
-author: "SIDs xxx"
+title: "DATA1001 Project 1"
+author: "Daniel Oh | Nick Gharman | Tommy Blair | Mitchel Gilling | Rafael Rodriguez | Killian McNamara | Harrison Lehmann"
 format: 
   html:
+    theme: styles.scss
     embed-resources: true
     toc: true
     code-fold: true
@@ -50,6 +51,7 @@ Students report surprisingly low workloads overall. Weekly work hours are highly
 The histograms reinforce these patterns: both work and study hours cluster near zero, while expected marks cluster near the upper end of the scale. Stress levels, however, show a more moderate and symmetric distribution. When comparing domestic and international students, the boxplot indicates that stress levels are almost identical across groups, suggesting that student type does not meaningfully influence wellbeing. Overall, the descriptive evidence shows weak alignment between workload, study behaviour, and academic expectations, with students maintaining high confidence regardless of actual time invested.
 
 ```{r}
+suppressPackageStartupMessages(library(ggplot2))
 library(ggplot2)
 
 ggplot(df, aes(x = student_type, y = stress)) +

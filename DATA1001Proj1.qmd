@@ -1,0 +1,116 @@
+---
+title: "DATA1001 Project Template"
+author: "SIDs xxx"
+format: 
+  html:
+    embed-resources: true
+    toc: true
+    code-fold: true
+---
+
+# Executive Summary
+
+In this report we explored counter intuitive patterns. Students report high expected marks despite low study hours and modest work commitments. Stress levels are moderate and similar across domestic and international students, suggesting that academic expectations rather than workload or student type may drive wellbeing outcomes.
+
+# Evidence
+
+## EDA
+
+The dataset contains 6,504 survey responses with 29 variables covering demographics, workload, expectations, and wellbeing. Several numeric variables required conversion, and unrealistic work hours above 100 were removed. As self‑reported survey data, responses may be influenced by optimism or recall bias. The sample is large but not necessarily representative of all university students. Key variables include hours worked, hours studying, expected marks, stress, and student type. Initial summaries show skewed distributions for work and study hours and consistently high expected marks.
+
+```{r}
+suppressPackageStartupMessages(library(tidyverse))
+library(tidyverse)
+df <- readr::read_csv("~/Documents/DATA1001/Project1/data1001_survey_data_2026S1-1.csv", show_col_types = FALSE)
+
+df$hours_work     <- as.numeric(df$hours_work)
+df$stress         <- as.numeric(df$stress)
+df$mark_goal      <- as.numeric(df$mark_goal)
+df$hours_studying <- as.numeric(df$hours_studying)
+
+df$student_type <- factor(df$student_type)
+
+df2 <- df[df$hours_work <= 100, ]
+```
+
+Discuss the data and consider
+
+1.  Source
+2.  Structure
+3.  Limitations
+4.  Assumptions
+5.  Data cleaning
+
+## Research Question 1
+
+Research Question 1: How do students’ work hours, study hours, and expected marks relate, and what counter intuitive patterns emerge?
+
+Students report surprisingly low workloads overall. Weekly work hours are highly skewed, with a median of only 3 hours and a long right tail created by a small group of students working very high hours. Study hours follow a similar pattern: most students study very little (median = 4 hours), while a minority report much heavier study loads. Despite these low inputs, expected marks remain consistently high, with a median of 85 and a narrow interquartile range. This suggests a clear optimism bias or a mismatch between effort and academic expectations.
+
+The histograms reinforce these patterns: both work and study hours cluster near zero, while expected marks cluster near the upper end of the scale. Stress levels, however, show a more moderate and symmetric distribution. When comparing domestic and international students, the boxplot indicates that stress levels are almost identical across groups, suggesting that student type does not meaningfully influence wellbeing. Overall, the descriptive evidence shows weak alignment between workload, study behaviour, and academic expectations, with students maintaining high confidence regardless of actual time invested.
+
+```{r}
+library(ggplot2)
+
+ggplot(df, aes(x = student_type, y = stress)) +
+  geom_boxplot() +
+  labs(
+    x = "Student Type",
+    y = "Stress Level",
+    title = "Stress by Student Type"
+  )
+
+ggplot(df2, aes(hours_work)) +
+  geom_histogram(binwidth = 2, fill = "skyblue", color = "black") +
+  labs (
+    x = "Hours Worked per Week",
+    y = "Number of Students",
+    title = "Distribution of Weekly Work Hours"
+  )
+
+ggplot(df, aes(mark_goal)) +
+  geom_histogram(binwidth = 2, fill = "lightgreen", color = "black") +
+  labs (
+    x = "Expected Mark",
+    y = "Number of Students",
+    title = "Distribution of Expected Marks"
+  )
+
+ggplot(df, aes(hours_studying)) +
+  geom_histogram(binwidth = 2, fill = "orange", color = "black") +
+  labs (
+    x = "Hours Studying per Week",
+    y = "Number of Students",
+    title = "Distribution of Study Hours"
+  )
+```
+
+## Research Question 2 (Linear Model)
+
+Research Question 2: Do work hours, study hours, and student type predict stress levels?
+
+A linear model was fitted with stress as the response variable and hours worked, hours studying, and student type as predictors. Hours worked and hours studying both have slopes close to zero, indicating that increases in workload or study time do not systematically raise or lower stress. Student type shows only a minor difference, consistent with the descriptive summaries showing similar stress distributions for domestic and international students.
+
+Overall, the model suggests that these predictors have limited explanatory power for student wellbeing. Residual diagnostics were used to assess the assumptions of the linear model. The residual‑vs‑fitted plot shows no strong curvature, indicating that the linearity assumption is reasonable. Residuals are fairly evenly scattered, with only mild heteroscedasticity at higher fitted values. The Q–Q plot shows slight deviations from normality at the tails, which is expected because stress is measured on a discrete 1–10 scale rather than a continuous variable. These deviations are small and do not meaningfully affect interpretation. Overall, the model is acceptable for exploratory purposes but highlights that stress is influenced by factors not captured in the dataset.
+
+```{r}
+
+lm_fit <- lm(stress ~ hours_work + hours_studying + student_type, data = df2)
+summary(lm_fit)
+
+plot(lm_fit, which = 1)
+plot(lm_fit, which = 2)
+
+```
+
+## Articles (Max 50 words)
+
+Include any relevant literature to your analysis.
+
+# Acknowledgements
+
+The Acknowledgment section includes a list of group meetings (date and time and attendance), the contribution of each group member, and all resources used (e.g. url of stack overflow, url of Ed post, date and details of drop-in session with tutor).
+
+An AI usage statement including: the name and version of the AI tools, the publisher, the URL, a brief description of the context in which the tool was used. If no AI was used, this must be clearly stated.
+
+A short statement explaining how 1 of the Shared Values and 1 of the Ethical Principles has been adhered to.

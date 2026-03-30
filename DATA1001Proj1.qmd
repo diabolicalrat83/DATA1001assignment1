@@ -96,13 +96,15 @@ A linear model was fitted with stress as the response variable and hours worked,
 Overall, the model suggests that these predictors have limited explanatory power for student wellbeing. Residual diagnostics were used to assess the assumptions of the linear model. The residual‑vs‑fitted plot shows no strong curvature, indicating that the linearity assumption is reasonable. Residuals are fairly evenly scattered, with only mild heteroscedasticity at higher fitted values. The Q–Q plot shows slight deviations from normality at the tails, which is expected because stress is measured on a discrete 1–10 scale rather than a continuous variable. These deviations are small and do not meaningfully affect interpretation. Overall, the model is acceptable for exploratory purposes but highlights that stress is influenced by factors not captured in the dataset.
 
 ```{r}
+df <- readr::read_csv("~/Documents/DATA1001/Project1/data1001_survey_data_2026S1-1.csv", show_col_types = FALSE)
+
+df2 <- df[df$hours_work <= 100, ]
 
 lm_fit <- lm(stress ~ hours_work + hours_studying + student_type, data = df2)
-summary(lm_fit)
 
+summary(lm_fit)
 plot(lm_fit, which = 1)
 plot(lm_fit, which = 2)
-
 ```
 
 ## Articles (Max 50 words)

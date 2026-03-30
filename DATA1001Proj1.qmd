@@ -1,5 +1,6 @@
 ---
 title: "DATA1001 Project 1"
+bibliography: references.bib
 author: "Daniel Oh | Nick Gharman | Tommy Blair | Mitchel Gilling | Rafael Rodriguez | Killian McNamara | Harrison Lehmann"
 format: 
   html:
@@ -108,11 +109,9 @@ plot(lm_fit, which = 2)
 
 ## Articles (Max 50 words)
 
-Sonja Nidogon Višnjić, Katarina Pažur Aničić, & Divjak, B. (2024). A systematic review of the literature on student work and academic performance. Industry & Higher Education, 38(5). <https://doi.org/10.1177/09504222241241974>
+@nidogonvisnjic2024
 
-Thies, T. (2022). International students in higher education: the effect of student employment on academic performance and study progress. Higher Education, 86, 933–951. <https://doi.org/10.1007/s10734-022-00950-5> 
-
-\
+@thies2022
 
 # Acknowledgements
 

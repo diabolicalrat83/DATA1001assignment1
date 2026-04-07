@@ -12,7 +12,7 @@ format:
 
 # Executive Summary
 
-In this report we explored counter intuitive patterns. Students report high expected marks despite low study hours and modest work commitments. Stress levels are moderate and similar across domestic and international students, suggesting that academic expectations rather than workload or student type may drive wellbeing outcomes.
+This report explores the counter intuitive patterns between out of school commitments and expected marks, as well as stress levels surveyed across both domestic and international students. Students reported high expected marks despite their low study hours and modest work commitments. Moderate stress levels were recorded across both domestic and international students, suggesting that academic expectations rather than workload or student type may drive wellbeing outcomes.
 
 # Evidence
 
@@ -43,13 +43,11 @@ Discuss the data and consider
 4.  Assumptions
 5.  Data cleaning
 
-## Research Question 1
-
-Research Question 1: How do students’ work hours, study hours, and expected marks relate, and what counter intuitive patterns emerge?
+## Research Question 1: How do students’ work hours, study hours, and expected marks relate, and what counter intuitive patterns emerge?
 
 Students report surprisingly low workloads overall. Weekly work hours are highly skewed, with a median of only 3 hours and a long right tail created by a small group of students working very high hours. Study hours follow a similar pattern: most students study very little (median = 4 hours), while a minority report much heavier study loads. Despite these low inputs, expected marks remain consistently high, with a median of 85 and a narrow interquartile range. This suggests a clear optimism bias or a mismatch between effort and academic expectations.
 
-The histograms reinforce these patterns: both work and study hours cluster near zero, while expected marks cluster near the upper end of the scale. Stress levels, however, show a more moderate and symmetric distribution. When comparing domestic and international students, the boxplot indicates that stress levels are almost identical across groups, suggesting that student type does not meaningfully influence wellbeing. Overall, the descriptive evidence shows weak alignment between workload, study behaviour, and academic expectations, with students maintaining high confidence regardless of actual time invested.
+The histograms below reinforce these patterns: both work and study hours cluster near zero, while expected marks cluster near the upper end of the scale. Stress levels, however, show a more moderate and symmetric distribution. When comparing domestic and international students, the boxplot indicates that stress levels are almost identical across groups, suggesting that student type does not meaningfully influence wellbeing. Overall, the descriptive evidence shows weak alignment between workload, study behaviour, and academic expectations, with students maintaining high confidence regardless of actual time invested.
 
 ```{r}
 suppressPackageStartupMessages(library(ggplot2))
@@ -88,9 +86,7 @@ ggplot(df, aes(hours_studying)) +
   )
 ```
 
-## Research Question 2 (Linear Model)
-
-Research Question 2: Do work hours, study hours, and student type predict stress levels?
+## Research Question 2 (Linear Model): Do work hours, study hours, and student type predict stress levels?
 
 A linear model was fitted with stress as the response variable and hours worked, hours studying, and student type as predictors. Hours worked and hours studying both have slopes close to zero, indicating that increases in workload or study time do not systematically raise or lower stress. Student type shows only a minor difference, consistent with the descriptive summaries showing similar stress distributions for domestic and international students.
 
@@ -115,9 +111,32 @@ plot(lm_fit, which = 2)
 
 # Acknowledgements
 
-The Acknowledgment section includes a list of group meetings (date and time and attendance), the contribution of each group member, and all resources used (e.g. url of stack overflow, url of Ed post, date and details of drop-in session with tutor).
+**Member Contributions:**
 
-An AI usage statement including: the name and version of the AI tools, the publisher, the URL, a brief description of the context in which the tool was used. If no AI was used, this must be clearly stated.
+Nick - Writing the code and finalising research questions
+
+Tommy - Creating the Slides and summarising the graphs.
+
+Mitch - Numeric summaries, contribution to limitations, acknowledgements
+
+Raf - Limitations, assumptions and researching for articles
+
+Daniel - Formatting information into the .qmd file, revising the code, and submission.
+
+Harrison - Summarising statistical analysis
+
+Killian -
+
+|                          |                                        |
+|--------------------------|----------------------------------------|
+| Meeting Dates            | Members:                               |
+| 2026-02-24 09:00 - 10:00 | All group members (excluding Tommy)    |
+| 2026-03-03 09:00 - 10:00 | All group members                      |
+| 2026-03-10 09:00 - 10:00 | All group members                      |
+| 2026-03-17 09:00 - 10:00 | All group members (excluding Mitch)    |
+| 2026-03-24 09:00 - 10:00 | All group members                      |
+| 2026-03-31 09:00 - 10:00 | All group members                      |
+| 2026-04-07 12:00 - 14:00 | All group members (excluding Killian)  |
 
 A short statement explaining how 1 of the Shared Values and 1 of the Ethical Principles has been adhered to.
 

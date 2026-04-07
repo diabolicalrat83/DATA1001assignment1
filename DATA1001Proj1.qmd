@@ -127,11 +127,11 @@ plot(lm_fit, which = 1)
 plot(lm_fit, which = 2)
 ```
 
-## Articles (Max 50 words)
+## Articles
 
-@nidogonvisnjic2024
+Nidogon Višnjić, Sonja, Katarina Pažur Aničić, and Blaženka Divjak. 2024. “A Systematic Review of the Literature on Student Work and Academic Performance.” *Industry & Higher Education* 38 (5). <https://doi.org/10.1177/09504222241241974>.
 
-@thies2022
+Thies, Theresa. 2022. “International Students in Higher Education: The Effect of Student Employment on Academic Performance and Study Progress.” *Higher Education* 86: 933–51. <https://doi.org/10.1007/s10734-022-00950-5>.
 
 # Acknowledgements
 

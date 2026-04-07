@@ -2232,9 +2232,9 @@ vertical-align: -.125em;
   <li><a href="#evidence" id="toc-evidence" class="nav-link" data-scroll-target="#evidence">Evidence</a>
   <ul class="collapse">
   <li><a href="#eda" id="toc-eda" class="nav-link" data-scroll-target="#eda">EDA</a></li>
-  <li><a href="#research-question-1" id="toc-research-question-1" class="nav-link" data-scroll-target="#research-question-1">Research Question 1</a></li>
-  <li><a href="#research-question-2-linear-model" id="toc-research-question-2-linear-model" class="nav-link" data-scroll-target="#research-question-2-linear-model">Research Question 2 (Linear Model)</a></li>
-  <li><a href="#articles-max-50-words" id="toc-articles-max-50-words" class="nav-link" data-scroll-target="#articles-max-50-words">Articles (Max 50 words)</a></li>
+  <li><a href="#research-question-1-how-do-students-work-hours-study-hours-and-expected-marks-relate-and-what-counter-intuitive-patterns-emerge" id="toc-research-question-1-how-do-students-work-hours-study-hours-and-expected-marks-relate-and-what-counter-intuitive-patterns-emerge" class="nav-link" data-scroll-target="#research-question-1-how-do-students-work-hours-study-hours-and-expected-marks-relate-and-what-counter-intuitive-patterns-emerge">Research Question 1: How do students’ work hours, study hours, and expected marks relate, and what counter intuitive patterns emerge?</a></li>
+  <li><a href="#research-question-2-linear-model-do-work-hours-study-hours-and-student-type-predict-stress-levels" id="toc-research-question-2-linear-model-do-work-hours-study-hours-and-student-type-predict-stress-levels" class="nav-link" data-scroll-target="#research-question-2-linear-model-do-work-hours-study-hours-and-student-type-predict-stress-levels">Research Question 2 (Linear Model): Do work hours, study hours, and student type predict stress levels?</a></li>
+  <li><a href="#articles" id="toc-articles" class="nav-link" data-scroll-target="#articles">Articles</a></li>
   </ul></li>
   <li><a href="#acknowledgements" id="toc-acknowledgements" class="nav-link" data-scroll-target="#acknowledgements">Acknowledgements</a></li>
   </ul>
@@ -2269,13 +2269,12 @@ vertical-align: -.125em;
 
 <section id="executive-summary" class="level1">
 <h1>Executive Summary</h1>
-<p>In this report we explored counter intuitive patterns. Students report high expected marks despite low study hours and modest work commitments. Stress levels are moderate and similar across domestic and international students, suggesting that academic expectations rather than workload or student type may drive wellbeing outcomes.</p>
+<p>This report explores the counter intuitive patterns between out of school commitments and expected marks, as well as stress levels surveyed across both domestic and international students. Students reported high expected marks despite their low study hours and modest work commitments. Moderate stress levels were recorded across both domestic and international students, suggesting that academic expectations rather than workload or student type may drive wellbeing outcomes.</p>
 </section>
 <section id="evidence" class="level1">
 <h1>Evidence</h1>
 <section id="eda" class="level2">
 <h2 class="anchored" data-anchor-id="eda">EDA</h2>
-<p>The dataset contains 6,504 survey responses with 29 variables covering demographics, workload, expectations, and wellbeing. Several numeric variables required conversion, and unrealistic work hours above 100 were removed. As self‑reported survey data, responses may be influenced by optimism or recall bias. The sample is large but not necessarily representative of all university students. Key variables include hours worked, hours studying, expected marks, stress, and student type. Initial summaries show skewed distributions for work and study hours and consistently high expected marks.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -2293,20 +2292,34 @@ vertical-align: -.125em;
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>df2 <span class="ot">&lt;-</span> df[df<span class="sc">$</span>hours_work <span class="sc">&lt;=</span> <span class="dv">100</span>, ]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<p>Discuss the data and consider</p>
+<p>The dataset was collected from a survey completed by consenting University of Sydney students enrolled in DATA1X01 and 1901. It contained 6,504 survey responses with 29 variables.</p>
+<p>Variables that were focused on:</p>
+<ul>
+<li><p>Hours of paid work within the previous week (quantitative, continuous)</p></li>
+<li><p>Hours of study intended per week (quantitative, continuous)</p></li>
+<li><p>Stress level experienced within the previous 2 weeks (quantitative, discrete)</p></li>
+<li><p>Mark student hopes to achieve (quantitative, continuous)</p></li>
+<li><p>Student type (qualitative, nominal)</p></li>
+</ul>
 <ol type="1">
-<li>Source</li>
-<li>Structure</li>
-<li>Limitations</li>
-<li>Assumptions</li>
-<li>Data cleaning</li>
+<li><p>Limitations</p>
+<p>-The data is not representative of all university students as it is a sample only collected from DATA1X01 and 1901 students. Furthermore the data is vulnerable to optimism or recall bias as the survey is self-reported.</p>
+<p>-Data collected for student “hours worked” and “stress levels” is cross sectional, taken from a single point of time, limiting our ability to establish causal relationships between variables.</p></li>
+<li><p>Assumptions</p>
+<p>It was assumed that </p>
+<ul>
+<li><p>participants were truthful with responses</p></li>
+<li><p>unrealistic hours above 100 were entered incorrectly</p></li>
+<li><p>interpretation of the the stress scale (1-10) is consistent between students</p></li>
+</ul></li>
+<li><p>Data cleaning</p>
+<p>Data was then cleaned by removing responses of 100+ hours worked, non-answered and invalid responses. Additionally, several numeric variables required conversion.</p></li>
 </ol>
 </section>
-<section id="research-question-1" class="level2">
-<h2 class="anchored" data-anchor-id="research-question-1">Research Question 1</h2>
-<p>Research Question 1: How do students’ work hours, study hours, and expected marks relate, and what counter intuitive patterns emerge?</p>
+<section id="research-question-1-how-do-students-work-hours-study-hours-and-expected-marks-relate-and-what-counter-intuitive-patterns-emerge" class="level2">
+<h2 class="anchored" data-anchor-id="research-question-1-how-do-students-work-hours-study-hours-and-expected-marks-relate-and-what-counter-intuitive-patterns-emerge">Research Question 1: How do students’ work hours, study hours, and expected marks relate, and what counter intuitive patterns emerge?</h2>
 <p>Students report surprisingly low workloads overall. Weekly work hours are highly skewed, with a median of only 3 hours and a long right tail created by a small group of students working very high hours. Study hours follow a similar pattern: most students study very little (median = 4 hours), while a minority report much heavier study loads. Despite these low inputs, expected marks remain consistently high, with a median of 85 and a narrow interquartile range. This suggests a clear optimism bias or a mismatch between effort and academic expectations.</p>
-<p>The histograms reinforce these patterns: both work and study hours cluster near zero, while expected marks cluster near the upper end of the scale. Stress levels, however, show a more moderate and symmetric distribution. When comparing domestic and international students, the boxplot indicates that stress levels are almost identical across groups, suggesting that student type does not meaningfully influence wellbeing. Overall, the descriptive evidence shows weak alignment between workload, study behaviour, and academic expectations, with students maintaining high confidence regardless of actual time invested.</p>
+<p>The histograms below reinforce these patterns: both work and study hours cluster near zero, while expected marks cluster near the upper end of the scale. Stress levels, however, show a more moderate and symmetric distribution. When comparing domestic and international students, the boxplot indicates that stress levels are almost identical across groups, suggesting that student type does not meaningfully influence wellbeing. Overall, the descriptive evidence shows weak alignment between workload, study behaviour, and academic expectations, with students maintaining high confidence regardless of actual time invested.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -2397,9 +2410,8 @@ vertical-align: -.125em;
 </div>
 </div>
 </section>
-<section id="research-question-2-linear-model" class="level2">
-<h2 class="anchored" data-anchor-id="research-question-2-linear-model">Research Question 2 (Linear Model)</h2>
-<p>Research Question 2: Do work hours, study hours, and student type predict stress levels?</p>
+<section id="research-question-2-linear-model-do-work-hours-study-hours-and-student-type-predict-stress-levels" class="level2">
+<h2 class="anchored" data-anchor-id="research-question-2-linear-model-do-work-hours-study-hours-and-student-type-predict-stress-levels">Research Question 2 (Linear Model): Do work hours, study hours, and student type predict stress levels?</h2>
 <p>A linear model was fitted with stress as the response variable and hours worked, hours studying, and student type as predictors. Hours worked and hours studying both have slopes close to zero, indicating that increases in workload or study time do not systematically raise or lower stress. Student type shows only a minor difference, consistent with the descriptive summaries showing similar stress distributions for domestic and international students.</p>
 <p>Overall, the model suggests that these predictors have limited explanatory power for student wellbeing. Residual diagnostics were used to assess the assumptions of the linear model. The residual‑vs‑fitted plot shows no strong curvature, indicating that the linearity assumption is reasonable. Residuals are fairly evenly scattered, with only mild heteroscedasticity at higher fitted values. The Q–Q plot shows slight deviations from normality at the tails, which is expected because stress is measured on a discrete 1–10 scale rather than a continuous variable. These deviations are small and do not meaningfully affect interpretation. Overall, the model is acceptable for exploratory purposes but highlights that stress is influenced by factors not captured in the dataset.</p>
 <div class="cell">
@@ -2433,16 +2445,58 @@ vertical-align: -.125em;
 </div>
 </div>
 </section>
-<section id="articles-max-50-words" class="level2">
-<h2 class="anchored" data-anchor-id="articles-max-50-words">Articles (Max 50 words)</h2>
+<section id="articles" class="level2">
+<h2 class="anchored" data-anchor-id="articles">Articles</h2>
 <p><span class="citation" data-cites="nidogonvisnjic2024">Nidogon Višnjić, Pažur Aničić, and Divjak (<a href="#ref-nidogonvisnjic2024" role="doc-biblioref">2024</a>)</span></p>
 <p><span class="citation" data-cites="thies2022">Thies (<a href="#ref-thies2022" role="doc-biblioref">2022</a>)</span></p>
 </section>
 </section>
 <section id="acknowledgements" class="level1">
 <h1>Acknowledgements</h1>
-<p>The Acknowledgment section includes a list of group meetings (date and time and attendance), the contribution of each group member, and all resources used (e.g. url of stack overflow, url of Ed post, date and details of drop-in session with tutor).</p>
-<p>An AI usage statement including: the name and version of the AI tools, the publisher, the URL, a brief description of the context in which the tool was used. If no AI was used, this must be clearly stated.</p>
+<p><strong>Member Contributions:</strong></p>
+<p>Nick - Writing the code and finalising research questions</p>
+<p>Tommy - Creating the Slides and summarising the graphs.</p>
+<p>Mitch - Numeric summaries, contribution to limitations, acknowledgements</p>
+<p>Raf - Limitations, assumptions and researching for articles</p>
+<p>Daniel - Formatting information into the .qmd file, revising the code, and submission.</p>
+<p>Harrison - Summarising statistical analysis</p>
+<p>Killian -</p>
+<table class="caption-top table">
+<tbody>
+<tr class="odd">
+<td>Meeting Dates</td>
+<td>Members:</td>
+</tr>
+<tr class="even">
+<td>2026-02-24 09:00 - 10:00</td>
+<td>All group members (excluding Tommy)</td>
+</tr>
+<tr class="odd">
+<td>2026-03-03 09:00 - 10:00</td>
+<td>All group members</td>
+</tr>
+<tr class="even">
+<td>2026-03-10 09:00 - 10:00</td>
+<td>All group members</td>
+</tr>
+<tr class="odd">
+<td>2026-03-17 09:00 - 10:00</td>
+<td>All group members (excluding Mitch)</td>
+</tr>
+<tr class="even">
+<td>2026-03-24 09:00 - 10:00</td>
+<td>All group members</td>
+</tr>
+<tr class="odd">
+<td>2026-03-31 09:00 - 10:00</td>
+<td>All group members</td>
+</tr>
+<tr class="even">
+<td>2026-04-07 12:00 - 14:00</td>
+<td>All group members (excluding Killian) </td>
+</tr>
+</tbody>
+</table>
 <p>A short statement explaining how 1 of the Shared Values and 1 of the Ethical Principles has been adhered to.</p>
 <p><strong>AI Usage Statement</strong></p>
 <p>There was no AI used to produce the final version of this project. No content of the final submission of this project contains assistance from AI, including research, analysis and coding.</p>

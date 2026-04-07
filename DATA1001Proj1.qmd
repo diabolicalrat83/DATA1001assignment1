@@ -18,8 +18,6 @@ This report explores the counter intuitive patterns between out of school commit
 
 ## EDA
 
-The dataset contains 6,504 survey responses with 29 variables covering demographics, workload, expectations, and wellbeing. Several numeric variables required conversion, and unrealistic work hours above 100 were removed. As self‑reported survey data, responses may be influenced by optimism or recall bias. The sample is large but not necessarily representative of all university students. Key variables include hours worked, hours studying, expected marks, stress, and student type. Initial summaries show skewed distributions for work and study hours and consistently high expected marks.
-
 ```{r}
 suppressPackageStartupMessages(library(tidyverse))
 library(tidyverse)
@@ -35,13 +33,39 @@ df$student_type <- factor(df$student_type)
 df2 <- df[df$hours_work <= 100, ]
 ```
 
-Discuss the data and consider
+The dataset was collected from a survey completed by consenting University of Sydney students enrolled in DATA1X01 and 1901. It contained 6,504 survey responses with 29 variables.
 
-1.  Source
-2.  Structure
-3.  Limitations
-4.  Assumptions
-5.  Data cleaning
+Variables that were focused on:
+
+-   Hours of paid work within the previous week (quantitative, continuous)
+
+-   Hours of study intended per week (quantitative, continuous)
+
+-   Stress level experienced within the previous 2 weeks (quantitative, discrete)
+
+-   Mark student hopes to achieve (quantitative, continuous)
+
+-   Student type (qualitative, nominal)
+
+1.  Limitations
+
+    -The data is not representative of all university students as it is a sample only collected from DATA1X01 and 1901 students. Furthermore the data is vulnerable to optimism or recall bias as the survey is self-reported.
+
+    -Data collected for student “hours worked” and “stress levels” is cross sectional, taken from a single point of time, limiting our ability to establish causal relationships between variables.
+
+2.  Assumptions
+
+    It was assumed that 
+
+    -   participants were truthful with responses
+
+    -   unrealistic hours above 100 were entered incorrectly
+
+    -   interpretation of the the stress scale (1-10) is consistent between students
+
+3.  Data cleaning
+
+    Data was then cleaned by removing responses of 100+ hours worked, non-answered and invalid responses. Additionally, several numeric variables required conversion.
 
 ## Research Question 1: How do students’ work hours, study hours, and expected marks relate, and what counter intuitive patterns emerge?
 

@@ -69,9 +69,9 @@ Variables that were focused on:
 
 ## Research Question 1: How do students’ work hours, study hours, and expected marks relate, and what counter intuitive patterns emerge?
 
-Students report surprisingly low workloads overall. Weekly work hours are highly skewed, with a median of only 3 hours and a long right tail created by a small group of students working very high hours. Study hours follow a similar pattern: most students study very little (median = 4 hours), while a minority report much heavier study loads. Despite these low inputs, expected marks remain consistently high, with a median of 85 and a narrow interquartile range. This suggests a clear optimism bias or a mismatch between effort and academic expectations.
+Students report surprisingly low workloads overall. Weekly work hours are highly skewed, with a median of 3 hours and a long right tail created by a small group of students working very high hours. Study hours follow a similar pattern: most students study very little (median = 4 hours), while a minority report much heavier study loads. Despite these low inputs, expected marks remain consistently high, with a median of 85 and a narrow interquartile range. This suggests a clear optimism bias or a mismatch between effort and academic expectations.
 
-The histograms below reinforce these patterns: both work and study hours cluster near zero, while expected marks cluster near the upper end of the scale. Stress levels, however, show a more moderate and symmetric distribution. When comparing domestic and international students, the boxplot indicates that stress levels are almost identical across groups, suggesting that student type does not meaningfully influence wellbeing. Overall, the descriptive evidence shows weak alignment between workload, study behaviour, and academic expectations, with students maintaining high confidence regardless of actual time invested.
+The histograms below reinforce these patterns: work and study hours cluster near zero, while expected marks cluster near the upper end of the scale. Stress levels, however, show a more moderate and symmetric distribution. When comparing domestic and international students, the boxplot indicates that stress levels are almost identical across groups, suggesting that student type does not meaningfully influence wellbeing. Research suggests that workload, study time, and academic outcomes are only weakly correlated, and that students’ perceptions of pressure depend more on their interest in the work than on the amount of work itself (Kember et al., 1996). Overall, the descriptive evidence shows weak alignment between workload, study behaviour, and academic expectations, with students maintaining high confidence regardless of time invested.
 
 ```{r}
 suppressPackageStartupMessages(library(ggplot2))
@@ -112,9 +112,9 @@ ggplot(df, aes(hours_studying)) +
 
 ## Research Question 2 (Linear Model): Do work hours, study hours, and student type predict stress levels?
 
-A linear model was fitted with stress as the response variable and hours worked, hours studying, and student type as predictors. Hours worked and hours studying both have slopes close to zero, indicating that increases in workload or study time do not systematically raise or lower stress. Student type shows only a minor difference, consistent with the descriptive summaries showing similar stress distributions for domestic and international students.
+A linear model was fitted with stress as the response variable and hours worked, hours studying, and student type as predictors. Hours worked and hours studying both have slopes close to zero, indicating that increases in workload or study time do not systematically raise or lower stress. Student type shows minor differences, consistent with the descriptive summaries showing similar stress distributions for domestic and international students.
 
-Overall, the model suggests that these predictors have limited explanatory power for student wellbeing. Residual diagnostics were used to assess the assumptions of the linear model. The residual‑vs‑fitted plot shows no strong curvature, indicating that the linearity assumption is reasonable. Residuals are fairly evenly scattered, with only mild heteroscedasticity at higher fitted values. The Q–Q plot shows slight deviations from normality at the tails, which is expected because stress is measured on a discrete 1–10 scale rather than a continuous variable. These deviations are small and do not meaningfully affect interpretation. Overall, the model is acceptable for exploratory purposes but highlights that stress is influenced by factors not captured in the dataset.
+Overall, the model suggests that these predictors have limited explanatory power for student wellbeing. Residual diagnostics were used to assess the assumptions of the linear model. The residual‑vs‑fitted plot shows no strong curvature, indicating that the linearity assumption is reasonable. Residuals are fairly evenly scattered, with only mild heteroscedasticity at higher fitted values. The Q–Q plot shows slight deviations from normality at the tails, which is expected because stress is measured on a discrete 1–10 scale rather than a continuous variable. These deviations are small and do not meaningfully affect interpretation. Research highlights that relationships between workload, time management, and stress are complex rather than direct, suggesting that simple variables such as work and study hours are limited predictors of stress (Ahmady et al., 2021). Overall, the model is acceptable for exploratory purposes but highlights that stress is influenced by factors not captured in the dataset.
 
 ```{r}
 df <- readr::read_csv("~/Documents/DATA1001/Project1/data1001_survey_data_2026S1-1.csv", show_col_types = FALSE)
@@ -132,6 +132,11 @@ plot(lm_fit, which = 2)
 Nidogon Višnjić, Sonja, Katarina Pažur Aničić, and Blaženka Divjak. 2024. “A Systematic Review of the Literature on Student Work and Academic Performance.” *Industry & Higher Education* 38 (5). <https://doi.org/10.1177/09504222241241974>.
 
 Thies, Theresa. 2022. “International Students in Higher Education: The Effect of Student Employment on Academic Performance and Study Progress.” *Higher Education* 86: 933–51. <https://doi.org/10.1007/s10734-022-00950-5>.
+
+Kember, D., NG, S., TSE, H., Wong, E. T. T., & Pomfret, M. (1996). An examination of the interrelationships between workload, study time, learning approaches and academic outcomes. Studies in Higher Education, 21(3), 347–358. <https://doi.org/10.1080/03075079612331381261>.
+
+Ahmady S, Khajeali N, Kalantarion M, Sharifi F, Yaseri M. Relation between stress, time management, and academic achievement in preclinical medical education: A systematic review and meta-analysis. J Educ Health Promot. 2021 Jan 28;10:32. doi: 10.4103/jehp.jehp_600_20. PMID: 33688541; PMCID: PMC7933620.
+
 
 # Acknowledgements
 

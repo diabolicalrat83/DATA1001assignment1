@@ -1,6 +1,5 @@
 ---
 title: "DATA1001 Project 1"
-bibliography: references.bib
 author: "Daniel Oh | Nick Gharman | Tommy Blair | Mitchel Gilling | Rafael Rodriguez | Killian McNamara | Harrison Lehmann"
 format: 
   html:

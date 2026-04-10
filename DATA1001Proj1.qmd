@@ -137,7 +137,7 @@ Kember, D., NG, S., TSE, H., Wong, E. T. T., & Pomfret, M. (1996). An examinatio
 
 Ahmady S, Khajeali N, Kalantarion M, Sharifi F, Yaseri M. Relation between stress, time management, and academic achievement in preclinical medical education: A systematic review and meta-analysis. J Educ Health Promot. 2021 Jan 28;10:32. doi: 10.4103/jehp.jehp_600_20. PMID: 33688541; PMCID: PMC7933620.
 
-======= \## Resources Used:
+## Resources Used
 
 -   <https://edstem.org/au/courses/30417/discussion/3227691>
 
